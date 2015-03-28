@@ -1,1 +1,17 @@
-<h3>your short url of <%= @url.long %> is <%= @url.short_url %></h3>
+<h3><%= @url.long %></h3>
+<div>
+  <table>
+    <tr>
+      <td><strong>Short Alias:</strong></td>
+      <td><%= @url.short_url %></td>
+    </tr>
+    <tr>
+      <td><strong>Visits:</strong></td>
+      <td><%= @url.popularity %></td>
+    </tr>
+    <tr>
+      <td><strong>Created At:</strong></td>
+      <td><%= time_ago_in_words(@url.created_at) %></td>
+    </tr>
+  </table>
+</div>
