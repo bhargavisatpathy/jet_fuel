@@ -1,0 +1,9 @@
+<%= button_to "new", new_url_path, method: :get %>
+<h3>List of urls</h3>
+<%= link_to "sort by popularity", { controller: :urls, action: :index, sort: :popularity } %>
+<%= link_to "sort by age", urls_path %>
+<ul>
+  <% @urls.each do |url| %>
+    <li><%= link_to url.long, url_path(url) %> <%= url.popularity %></li>
+  <% end %>
+</ul>

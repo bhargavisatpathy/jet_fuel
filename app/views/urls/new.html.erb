@@ -1,6 +1,5 @@
-<h1>JET FUEL</h1>
 <h3>Get your short url here</h3>
 <%= form_for(@url) do |f| %>
-  <%= f.text_field :url %>
+  <%= f.text_field :long %>
   <%= f.submit "Shorten" %>
 <% end %>
