@@ -1,10 +1,10 @@
 class Codec
-
-  CODE = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split(//)
+  CODE = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+          .split(//)
 
   def self.encode(i)
     return CODE[0] if i == 0
-    s = ''
+    s = ""
     base = CODE.length
     while i > 0
       s << CODE[i % base]
@@ -19,5 +19,4 @@ class Codec
     s.each_char { |c| i = i * base + CODE.index(c) }
     i
   end
-
 end
