@@ -1,5 +1,6 @@
 class Api::V1::UrlsController < ApplicationController
   respond_to :json
+  skip_before_action :verify_authenticity_token
 
   def create
     @url = Url.find_or_create_by(url_params)
