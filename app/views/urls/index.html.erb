@@ -4,6 +4,9 @@
   { controller: :urls, action: :index, sort: :popularity } %>&nbsp;
 <%= link_to "by age", urls_path %>
 <p></p>
+<form>
+  <input id= "filter" type="text" name="filter" placeholder="filter">
+</form>
 <div>
   <table>
     <% @urls.each do |url| %>
@@ -15,3 +18,16 @@
     <% end %>
   </table>
 </div>
+<script type="text/javascript">
+  $.expr[":"].containsNoCase = function(el, i, m) {
+      var search = m[3];
+      if (!search) return false;
+      return new RegExp(search, "i").test($(el).text());
+  };
+
+  $("#filter").keyup(function() {
+      var search = $(this).val();
+      $("tr").show();
+      if (search) $("tr").not(":containsNoCase(" + search + ")").hide();
+  });
+</script>
